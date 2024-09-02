@@ -7,7 +7,8 @@ import { Data } from '../model/model';
   providedIn: 'root'
 })
 export class DataService {
-  private apiUrl = 'http://localhost:3000/data';
+  //private apiUrl = 'http://localhost:3000/data';
+  private apiUrl = 'https://datagaurddb.onrender.com/api/data';
   private dataSubject = new BehaviorSubject<any>(null);
   private destroy$ = new Subject<void>();
   data$: Observable<Data> = this.dataSubject.asObservable();
