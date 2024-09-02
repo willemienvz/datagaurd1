@@ -1,0 +1,109 @@
+.side-panel {
+  width: 320px;
+  background-color: #f1f1f1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+ 
+  .top-section{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
+      .logo{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0 40px;
+    }
+ }
+  .bottom-section{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px;
+      background: rgb(241,241,241);
+      background: linear-gradient(180deg, rgba(241,241,241,1) 0%, rgba(152,217,182,1) 100%);
+      transition: 0.3s all;
+      p{
+          color: #0b344b;
+     }
+ }
+  .disabledToggle{
+      background: linear-gradient(180deg, rgba(241,241,241,1) 0%, rgba(215,127,136,1) 100%);
+ }
+}
+.logo img {
+  width: 100px;
+  margin-bottom: 40px;
+}
+.tabs {
+  margin-top: 40px;
+  width: 100%;
+}
+.tabs a {
+  color: #0b344b;
+  text-decoration: none;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  border-left: 5px solid transparent;
+  width: 100%;
+  font-weight: 500;
+  transition: 0.3s all;
+}
+.tabs a.active {
+  background-color: white;
+  border-left: 5px solid #940f05;
+}
+.tabs a:hover {
+  background-color: white;
+}
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+@media only screen and (max-width: 767px) {
+  .side-panel{
+      width: 60px;
+      .top-section{
+        .logo{
+          width: 100%;
+          padding: 0 ;
+          align-items: center;
+          app-logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+      }
+      }
+      
+      .bottom-section{
+          padding: 15px;
+          flex-direction: column;
+          gap: 15px;
+          p{
+              font-size: 12px;
+              text-align: center;
+         }
+     }
+      .tabs a {
+          padding: 20px 14px;
+          span{
+              display: none;
+         }
+     }
+ }
+}

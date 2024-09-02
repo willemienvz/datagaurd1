@@ -1,0 +1,17 @@
+<div class="side-panel">
+    <div class="top-section">
+        <div class="logo">
+            <app-logo></app-logo>
+        </div>
+        <div class="tabs">
+            <a *ngFor="let tab of tabs" [routerLink]="['/', tab.name]" routerLinkActive="active">
+                <i class="material-symbols-outlined">{{ getIcon(tab.icon) }}</i> <span>{{ tab.title }}</span>
+            </a>
+        </div>
+    </div>
+    <div class="bottom-section" [ngClass]="{'disabledToggle': !checked}">
+        <p>{{ checked ? 'All plugins enabled' : 'All plugins disabled' }}</p>
+        <mat-slide-toggle class="custom-toggle" [checked]="checked"
+            (change)="onToggleChange($event)"></mat-slide-toggle>
+    </div>
+</div>

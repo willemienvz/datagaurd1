@@ -1,0 +1,26 @@
+<div *ngIf="selectedTabData" class="container">
+    <h3>{{ selectedTabData.title }}</h3>
+
+    <div class="plugin-row">
+        <div class="plugin" *ngFor="let pluginKey of getAllPlugins(selectedTabData)" [ngClass]="{
+            'disabled-plugin': selectedTabData.disabled.includes(pluginKey),
+        }">
+            <div class="content">
+                <h2>{{ data.plugins[pluginKey].title }}</h2>
+                <p>{{ data.plugins[pluginKey].description }}</p>
+            </div>
+            <div class="toggle-container">
+                <mat-slide-toggle class="custom-toggle" [checked]="selectedTabData.active.includes(pluginKey)"
+                    [disabled]="selectedTabData.disabled.includes(pluginKey)"
+                    (change)="onToggleChange($event, pluginKey)">
+                </mat-slide-toggle>
+                <span [ngClass]="{
+                    'active': selectedTabData.active.includes(pluginKey),
+                    'blocked': selectedTabData.disabled.includes(pluginKey) || selectedTabData.inactive.includes(pluginKey)
+                }">
+                    {{ selectedTabData.active.includes(pluginKey) ? 'Active' : 'Blocked' }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
